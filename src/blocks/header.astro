@@ -1,0 +1,22 @@
+---
+import { CircleUserRoundIcon, ZapIcon, FlaskConicalIcon } from "lucide-react";
+import { ButtonLink } from "~/ui/button";
+---
+
+<header class="flex items-center justify-between p-4">
+  <a href="/" class="rounded-full bg-neutral-600 p-2">
+    <FlaskConicalIcon className="text-white" />
+  </a>
+
+  <div class="flex items-center gap-2">
+    <ButtonLink href="/" variant="secondary" target="_blank" className="gap-2">
+      <CircleUserRoundIcon />
+      <span>Login</span>
+    </ButtonLink>
+
+    <ButtonLink href="/try-free" className="gap-2">
+      <ZapIcon />
+      <span>Try Free</span>
+    </ButtonLink>
+  </div>
+</header>

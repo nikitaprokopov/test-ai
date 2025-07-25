@@ -1,0 +1,21 @@
+---
+import HtmlLayout from "~/layouts/html-layout.astro";
+import Header from "~/blocks/header.astro";
+
+export function getStaticPaths() {
+  // Мы можем делать тут запрос из CMS
+  // Либо прям JS/SJON объекты описывать под каждый лендинг
+
+  return [
+    { params: { path: "first_landing" }, props: { title: "First Landing" } },
+    { params: { path: "second_landing" }, props: { title: "Second Landing" } },
+    { params: { path: "third_landing" }, props: { title: "Third Landing" } },
+  ];
+}
+
+const { title } = Astro.props;
+---
+
+<HtmlLayout title={title}>
+  <Header />
+</HtmlLayout>
