@@ -6,10 +6,14 @@ import Header from "~/blocks/header.astro";
 <HtmlLayout title="Help Center">
   <Header />
 
-  <div class="grid grid-cols-3 gap-2 px-40">
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
+  <div class="px-40" transition:animate="slide">
+    <h2 class="mb-10 text-5xl">Help center page</h2>
+
+    <div class="grid grid-cols-2 gap-2">
+      <div class="h-[300px] w-full bg-blue-400"></div>
+      <div class="h-[300px] w-full bg-blue-400"></div>
+      <div class="h-[300px] w-full bg-blue-400"></div>
+      <div class="h-[300px] w-full bg-blue-400"></div>
+    </div>
   </div>
 </HtmlLayout>

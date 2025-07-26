@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.12",
     "@reatom/core": "^1000.0.0-alpha.34",
     "@reatom/react": "^1000.0.0-alpha.32",
     "@tailwindcss/vite": "^4.1.3",

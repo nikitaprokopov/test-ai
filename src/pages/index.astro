@@ -1,17 +1,24 @@
 ---
 import HtmlLayout from "~/layouts/html-layout.astro";
+import { GIRLS, ROUTES } from "~/constants";
 import Header from "~/blocks/header.astro";
 ---
 
 <HtmlLayout title="AI">
   <Header />
 
-  <h2 class="mb-10 px-40 text-5xl">Main page</h2>
+  <div class="px-40" transition:animate="slide">
+    <h2 class="mb-10 text-5xl">Main page</h2>
 
-  <div class="grid grid-cols-3 gap-2 px-40">
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
-    <div class="h-[200px] w-full bg-red-400"></div>
+    <div class="grid grid-cols-3 gap-2">
+      {
+        Object.entries(GIRLS).map(([girlKey, girl]) => (
+          <a href={`${ROUTES.TRY_FREE}?girl=${girlKey}`} class="h-[200px] w-full bg-red-400">
+            <h3>{girl.name}</h3>
+            <p>{girl.text}</p>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </HtmlLayout>

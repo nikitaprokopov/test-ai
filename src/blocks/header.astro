@@ -1,20 +1,26 @@
 ---
-import { CircleUserRoundIcon, ZapIcon, FlaskConicalIcon } from "lucide-react";
+import { CircleUserRoundIcon, ZapIcon, FlaskConicalIcon, HelpCircleIcon } from "lucide-react";
 import { ButtonLink } from "~/ui/button";
+import { ROUTES } from "~/constants";
 ---
 
-<header class="flex items-center justify-between p-4">
+<header class="flex items-center justify-between px-40 pt-6 pb-10">
   <a href="/" class="rounded-full bg-neutral-600 p-2">
     <FlaskConicalIcon className="text-white" />
   </a>
 
   <div class="flex items-center gap-2">
-    <ButtonLink href="/" variant="secondary" target="_blank" className="gap-2">
+    <ButtonLink href={ROUTES.HOME} variant="secondary" target="_blank" className="gap-2 hover:text-black">
       <CircleUserRoundIcon />
       <span>Login</span>
     </ButtonLink>
 
-    <ButtonLink href="/try-free" className="gap-2">
+    <ButtonLink variant="outline" href={ROUTES.HELP_CENTER} className="gap-2 text-black">
+      <HelpCircleIcon />
+      <span>Help Center</span>
+    </ButtonLink>
+
+    <ButtonLink href={ROUTES.TRY_FREE} className="gap-2">
       <ZapIcon />
       <span>Try Free</span>
     </ButtonLink>
