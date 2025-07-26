@@ -1,9 +1,13 @@
-import { createWidgetModel, TAGS_LIBRARY_TABS } from "./create-widget-model";
+import { initCreateWidgetModel, TAGS_LIBRARY_TABS, type CreateWidgetModel } from "./create-widget-model";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/ui/tabs";
 import { reatomComponent } from "@reatom/react";
 import { Textarea } from "~/ui/textarea";
 
-const TabsComponent = reatomComponent(() => {
+interface TabsComponentProps {
+  createWidgetModel: CreateWidgetModel;
+}
+
+const TabsComponent = reatomComponent(({ createWidgetModel }: TabsComponentProps) => {
   const tagsLibraryActiveTab = createWidgetModel.tagsLibraryActiveTabAtom();
 
   return (
@@ -54,7 +58,11 @@ const TabsComponent = reatomComponent(() => {
   );
 });
 
-const TextareaComponent = reatomComponent(() => {
+interface TextareaComponentProps {
+  createWidgetModel: CreateWidgetModel;
+}
+
+const TextareaComponent = reatomComponent(({ createWidgetModel }: TextareaComponentProps) => {
   return (
     <Textarea
       onChange={(e) => createWidgetModel.textareaValueAtom.set(e.target.value)}
@@ -65,10 +73,11 @@ const TextareaComponent = reatomComponent(() => {
 });
 
 interface GirlInfoComponentProps {
+  createWidgetModel: CreateWidgetModel;
   className?: string;
 }
 
-const GirlInfoComponent = reatomComponent(({ className }: GirlInfoComponentProps) => {
+const GirlInfoComponent = reatomComponent(({ className, createWidgetModel }: GirlInfoComponentProps) => {
   const girlData = createWidgetModel.girlDataAtom();
 
   if (!girlData) {
@@ -84,11 +93,13 @@ const GirlInfoComponent = reatomComponent(({ className }: GirlInfoComponentProps
 });
 
 export const CreateWidget = reatomComponent(() => {
+  const createWidgetModel = initCreateWidgetModel();
+
   return (
     <div>
-      <GirlInfoComponent className="mb-5" />
-      <TextareaComponent />
-      <TabsComponent />
+      <GirlInfoComponent createWidgetModel={createWidgetModel} className="mb-5" />
+      <TextareaComponent createWidgetModel={createWidgetModel} />
+      <TabsComponent createWidgetModel={createWidgetModel} />
     </div>
   );
 });

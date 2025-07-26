@@ -20,12 +20,16 @@ export const getGirlData = () => {
   return GIRLS[girlKey] ?? null;
 };
 
-const tagsLibraryActiveTabAtom = atom<keyof typeof TAGS_LIBRARY_TABS>(TAGS_LIBRARY_TABS.MODEL);
-const girlDataAtom = atom<Girl | null>(getGirlData());
-const textareaValueAtom = atom("");
+export const initCreateWidgetModel = () => {
+  const tagsLibraryActiveTabAtom = atom<keyof typeof TAGS_LIBRARY_TABS>(TAGS_LIBRARY_TABS.MODEL);
+  const girlDataAtom = atom<Girl | null>(getGirlData());
+  const textareaValueAtom = atom("");
 
-export const createWidgetModel = {
-  tagsLibraryActiveTabAtom,
-  textareaValueAtom,
-  girlDataAtom,
+  return {
+    tagsLibraryActiveTabAtom,
+    textareaValueAtom,
+    girlDataAtom,
+  };
 };
+
+export type CreateWidgetModel = ReturnType<typeof initCreateWidgetModel>;
